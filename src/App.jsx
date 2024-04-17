@@ -12,9 +12,9 @@ const App = () => {
       
       <Taskform/>
       <main className='app_main'>
-       <Taskcolumn title='To Do' icon={Todo}/>
-       <Taskcolumn title='Doing' icon={doing}/>
-       <Taskcolumn title='Done' icon={done}/>
+       <Taskcolumn className='task-column' title='To Do' icon={Todo}/>
+       <Taskcolumn className='task-column' title='Doing' icon={doing}/>
+       <Taskcolumn className='task-column' title='Done' icon={done}/>
       </main>
 
     </div>

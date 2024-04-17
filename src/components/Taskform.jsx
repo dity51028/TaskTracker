@@ -12,10 +12,10 @@ const Taskform = () => {
 
           <div className='task-form-bottom-line'>
             <div>
-            <Tag name='Important!!'/>
-            <Tag name='Less Important'/>
-            <Tag name='Need Time'/>
-            <Tag name='Less time'/>
+            <Tag tagName='Important!!'/>
+            <Tag tagName='Less Important'/>
+            <Tag tagName='Need Time'/>
+            <Tag tagName='Less time'/>
            
             </div>
 
