@@ -3,14 +3,16 @@ import './Taskcard.css'
 import Tag from './Tag'
 import trash from "../assets/trash.png"
 
-const Taskcard = () => {
+const Taskcard = ({title, tags}) => {
   return (
    <article className='task-card'>
-        <p className='task-text'>This is a simple text</p>
+        <p className='task-text'>{title}</p>
         <div className='task-card-bottom-line'>
             <div className='task-card-tags'>
-                <Tag tagName="Important !!"/>
-                <Tag tagName="Less important"/>
+               {
+                tags.map((tag,index) => (
+                    <Tag key={index} tagName={tag} selected/>) )
+               }
             </div>
             <div className='task-delete'>
                 <img src={trash} alt="delete button" className='delete-icon'/>

@@ -3,7 +3,7 @@ import React, { useState, useSyncExternalStore } from 'react'
 import './TaskForm.css'
 import Tag from './Tag'
 
-const Taskform = () => {
+const Taskform = ({setTasks}) => {
   const [taskdata, setTaskdata] = useState({
       task:" ",
       status : "TO DO",
@@ -26,7 +26,7 @@ const Taskform = () => {
         })
        }
    }
-console.log(taskdata.tags);
+
 
   const handleChange = (e) =>{
         const {name,value} = e.target;
@@ -37,10 +37,11 @@ console.log(taskdata.tags);
   const handleSubmit = (e)=>{
     e.preventDefault()
     console.log(taskdata);
+    setTasks(prev => {
+      return [...prev, taskdata]
+    })
   }
 
-
-  
 
  /* const [task, setTask] = useState("")
   const [Status, setStatus] = useState("TO DO")
