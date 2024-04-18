@@ -6,7 +6,7 @@ import Tag from './Tag'
 const Taskform = ({setTasks}) => {
   const [taskdata, setTaskdata] = useState({
       task:" ",
-      status : "TO DO",
+      status : "todo",
       tags:[]
   });
 
@@ -40,6 +40,12 @@ const Taskform = ({setTasks}) => {
     setTasks(prev => {
       return [...prev, taskdata]
     })
+
+    setTaskdata({
+      task:" ",
+      status : "todo",
+      tags:[]
+    })
   }
 
 
@@ -65,6 +71,7 @@ const Taskform = ({setTasks}) => {
           className='task-input' 
           placeholder='Enter your task'
           onChange={handleChange}
+          value={taskdata.task}
           
           />
 
@@ -92,6 +99,7 @@ const Taskform = ({setTasks}) => {
             <select className='task-status'
                 onChange={handleChange}
                 name='status'
+                value={taskdata.status}
             >
               <option value="todo">To Do</option>
               <option value="doing">Doing</option>

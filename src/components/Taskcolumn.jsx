@@ -3,7 +3,7 @@ import './Taskcolumn.css'
 import Taskcard from './Taskcard'
 
 
-const Taskcolumn = ({title,icon,tasks,status}) => {
+const Taskcolumn = ({title,icon,tasks,status,handleDelete}) => {
   return (
     <section className='task-column'>
         <h2 className='task-col-heading'>
@@ -17,6 +17,8 @@ const Taskcolumn = ({title,icon,tasks,status}) => {
                   key={index} 
                   title={task.task} 
                   tags={task.tags}
+                  handleDelete={handleDelete}
+                  index={index}
                   />
                 ))
             }
