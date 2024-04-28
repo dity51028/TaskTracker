@@ -1,52 +1,20 @@
-import React,{useState} from 'react'
-import './App.css'
-import Taskform from './components/Taskform'
-import Taskcolumn from './components/Taskcolumn'
-import Todo from '../src/assets/target.jpeg'
-import doing from '../src/assets/star.jpeg'
-import done from '../src/assets/checkmark.jpeg'
+import React from 'react'
+import { BrowserRouter,Route,Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
 
 const App = () => {
-  const [tasks, setTasks] = useState([])
-
-  const handleDelete = (taskIndex) =>{
-    const newTasks = tasks.filter((task,index) => index !== taskIndex)
-    setTasks(newTasks)
-
-  }
-  
   return (
-    <div className='app' >
-      <Taskform setTasks={setTasks}/>
-      <main className='app_main'>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='signup' element={<Signup/>} />
+        </Routes>
+      </BrowserRouter>
 
-       <Taskcolumn 
-        className='task-column' 
-        title='To Do' 
-        icon={Todo} 
-        tasks={tasks} 
-        status='todo' 
-        handleDelete={handleDelete}
-        />
-
-       <Taskcolumn 
-       className='task-column' 
-       title='Doing' 
-       icon={doing} 
-       tasks={tasks} 
-       status='doing'
-       handleDelete={handleDelete}
-       />
-       
-       <Taskcolumn 
-       className='task-column' 
-       title='Done' 
-       icon={done} 
-       tasks={tasks} 
-       status='done'
-       handleDelete={handleDelete}
-       />
-      </main>
 
     </div>
   )
